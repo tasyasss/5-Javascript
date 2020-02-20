@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Body Mass Index</title>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/popper.min.js"></script>
+	<script src="assets/js/bootstrap.js"></script>
+
+	<script type="text/javascript">
+		count = () =>{
+			// mengambil nilai dari element (get Value)
+			let berat = document.getElementById('berat').value;
+			let tinggi = document.getElementById('tinggi').value;
+			let hasil = berat / (tinggi * tinggi);
+
+			let element = document.getElementById('pesan');
+
+			if (berat != "" && tinggi != "") {
+				if (hasil < 10.5) {
+					element.className = "";
+					element.classList.add("alert");
+					element.classList.add("alert-success");
+					element.innerText += " Kurus ";
+				} else if (hasil >= 18.5 && hasil <= 22.9) {
+					element.className = "";
+					element.classList.add("alert");
+					element.classList.add("alert-success");
+					element.innerText += " Normal ";
+				} else if (hasil >= 22.9 && hasil <= 24.9) {
+					element.className = "";
+					element.classList.add("alert");
+					element.classList.add("alert-success");
+					element.innerText += " Overweight ";
+				} else {
+					element.className = "";
+					element.classList.add("alert");
+					element.classList.add("alert-success");
+					element.innerText += " Obesitas ";
+				}
+			} else {
+				element.className = "";
+				element.classList.add("alert");
+				element.classList.add("alert-danger");
+				element.innerText += " Isi TB dan BB anda!";
+			}
+
+			// menentukan nilai pada element (set value)
+			document.getElementById('hasil').value = hasil;
+		
+		}
+
+	</script>
+</head>
+
+<body>
+	<div class="container" align="center">
+		<div class="card col-sm-5">
+			<div class="card-header bg-info text-white">
+				<h4>Body Mass Index</h4>
+			</div>
+			<div class="card-body">
+
+				<div id="pesan"></div>
+
+				Berat (kg)
+				<input type="number" id="berat" class="form-control">
+				Tinggi (m)
+				<input type="number" id="tinggi" class="form-control">
+				
+				<br>
+
+				<button type="button" class="btn btn-info btn-block" onclick="count()">
+					Hitung
+				</button>
+				
+				<br>
+
+
+				Hasil
+				<input type="text" id="hasil" class="form-control" readonly>
+			</div>
+		</div>
+	</div>
+
+
+</body>
+</html>

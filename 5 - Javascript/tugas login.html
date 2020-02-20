@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Login Form</title>
+
+	<style media="screen">
+		.screen{
+			height: 60px;
+			font-size: 30px;
+			margin-bottom: 10px;
+		}
+	</style>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/popper.min.js"></script>
+	<script src="assets/js/bootstrap.js"></script>
+
+	<script type="text/javascript">
+		// Let username = 'halo';
+		// Let password = '12345';
+
+		
+
+		ShowResult = () => {
+			let user = document.getElementById('username').value;
+			let pass = document.getElementById('password').value;
+
+			let element = document.getElementById('pesan');
+
+			if (pass == '123' && user == '123') {
+				element.className = "";
+				element.classList.add("alert");
+				element.classList.add("alert-success");
+				element.innerText += " Login berhasil! ";
+
+			} else {
+				element.className = "";
+				element.classList.add("alert");
+				element.classList.add("alert-danger");
+				element.innerText += " Username/password salah! ";
+			}
+		}
+	</script>
+
+</head>
+
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="card col-sm-4">
+				<div class="card-header bg-primary text-white">
+					<h4>Login Form</h4>
+				</div>
+				
+				<div class="card-body">
+
+					<div id="pesan"></div>
+
+					Username
+					<input type="text" id="username" class="form-control">
+					Password
+					<input type="password" id="password" class="form-control">
+					<br>
+
+					<button type="button" class="btn btn-primary btn-block" onclick="ShowResult();">
+						LOGIN
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
